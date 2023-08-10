@@ -40,7 +40,7 @@
 		}
 
 		.background {
-			background-color: #ece5f0;
+			background-color: #6A6D6B;
 		}
 
 		.border {
@@ -48,28 +48,51 @@
 
 		}
 
-		.navMenu a:hover {
+		.navMenu a {
+	text-decoration: none;
+	color: #18272F;
+	font-weight: 10;
+  position: relative;
+}
 
-			color: #d09c0b;
-		}
+a::before {
+  content: '';
+  background-color: hsla(196, 61%, 58%, .75);
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 100%;
+  height: 8px;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+a:hover::before {
+  bottom: 0;
+  height: 100%;
+}
+
+/* Presentational Styles */
+body {
+	display: grid;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 12px;
+	line-height: 1.5;
+  height: 0vh;
+	place-items: center;
+}
 	</style>
 </head>
 
 <body>
 
 	<nav class="navMenu  border">
-		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i> Home</a>
-		<a id="inbox" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-inbox"></i> Inbox</a>
-		<a id="week" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-calendar-week"></i> Planner</a>
-		<a id="projects" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-briefcase"></i> Projects</a>
-		<a id="tasks" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-list-check"></i> Tasks</a>
-		<a id="business" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-money-bill-wave"></i> Business</a>
-		<a id="knowledge" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-lightbulb"></i> Knowledge</a>
-		<a id="topics" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-layer-group"></i> Topics</a>
-		<a id="notes" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-book"></i> Notes</a>
-		<a id="media" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-bookmark"></i> Media</a>
-		<a id="resourses" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-wrench"></i> Resourses</a>
-		<a id="lifewiki" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-heart"></i> Lifewiki</a>
+		<a id="notes" onclick="navigate(this.id)" href="#"> <i class="fa-regular fa-note-sticky"></i> + notes</a>
+		<a id="plan" onclick="navigate(this.id)" href="#"> <i class="fa-regular fa-paper-plane"></i> + plan</a>
+		<a id="tasks" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-list-check"></i> + task</a>
+		<a id="personal" onclick="navigate(this.id)" href="#"> <i class="fa-regular fa-user"></i> personal</a>
+		<a id="professional" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-briefcase"></i> professional</a>
+		<a id="academic" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-graduation-cap"></i> academic</a>
 
 
 
@@ -78,7 +101,7 @@
 
 	<script>
 
-		let direction = "horizontal";
+		let direction = "vertical";
 		if (direction === "vertical") {
 			document.head.insertAdjacentHTML("beforeend", `<style>.navMenu a {display: block; text-align:left; margin:7px} i{width:15px; margin-right:5px} .navMenu{margin:3px}</style>`)
 		}
@@ -86,32 +109,19 @@
 
 		function navigate(id) {
 
-			if (id == 'home')
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "inbox")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "week")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "month")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "projects")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "business")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "tasks")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "knowledge")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "topics")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "notes")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "media")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "resourses")
-				window.open("https://example.com3", '_blank').focus();
-			else if (id == "lifewiki")
-				window.open("https://example.com", '_blank').focus();
+			if (id == 'notes')
+				window.open("https://notes.com", '_blank').focus();
+			else if (id == 'plan')
+				window.open("https://plan.com", '_blank').focus();
+			else if (id == 'tasks')
+				window.open("https://tasks.com", '_blank').focus();
+			else if (id == 'personal')
+				window.open("https://personal.com", '_blank').focus();
+			else if (id == 'professional')
+				window.open("https://professional.com", '_blank').focus();
+			else if (id == 'academic')
+				window.open("https://academic.com", '_blank').focus();
+			
 
 		}
 	</script>
